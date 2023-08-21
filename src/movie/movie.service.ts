@@ -25,4 +25,15 @@ export class MovieService {
     if (!movie) throw new NotFoundException('Movie not found.');
     return movie;
   }
+
+  async updateById(id: string, movie: Movie): Promise<Movie> {
+    return await this.movieModel.findByIdAndUpdate(id, movie, {
+      new: true,
+      runValidators: true,
+    });
+  }
+
+  async deleteById(id: string): Promise<Movie> {
+    return await this.movieModel.findByIdAndDelete(id);
+  }
 }
