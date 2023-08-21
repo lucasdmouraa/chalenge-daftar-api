@@ -37,7 +37,7 @@ export class MovieController {
     return this.movieService.findById(id);
   }
 
-  @Put()
+  @Put(':id')
   async updateMovie(
     @Param('id')
     id: string,
